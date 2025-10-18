@@ -60,7 +60,7 @@ const ExpenseBox = styled.div`
 const AddTransactionContainer = styled.div`
   margin-top: 16px;
   width: 100%;
-  display: ${(props) => (props.visible ? "flex" : "none")};
+  display: ${(props) => (props.$visible ? "flex" : "none")};
   flex-direction: column;
   gap: 12px;
 `;
@@ -77,7 +77,7 @@ const AddTransactionView = ({ addTransaction, visible }) => {
   const [type, setType] = useState("EXPENSE");
 
   return (
-    <AddTransactionContainer visible={visible}>
+    <AddTransactionContainer $visible={visible}>
       <Input
         placeholder="Amount"
         type="number"
@@ -118,14 +118,17 @@ const AddTransactionView = ({ addTransaction, visible }) => {
           padding: "10px 12px",
           cursor: "pointer",
         }}
-        onClick={() =>
+        onClick={() => {
           addTransaction({
             id: Date.now(),
             amount: Number(amount),
             desc,
             type,
-          })
-        }
+          });
+          setAmount("");
+          setDesc("");
+          setType("EXPENSE");
+        }}
       >
         Add Transaction
       </button>
