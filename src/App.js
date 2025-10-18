@@ -2,35 +2,45 @@ import React from "react";
 import styled from "styled-components";
 import HomeComponent from "./module/home";
 
-const Container = styled.div`
-  background-color: white;
-  color: #0d1d2c;
+const AppContainer = styled.div`
+  background-color: #f7f8fa;
+  color: #1b1b1d;
   display: flex;
-  flex-direction: column;
-  margin: 0 10px;
+  justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 98%;
-  padding-top: 30px;
-  font-family: Montserrat;
+  font-family: "Poppins", sans-serif;
+`;
+
+const AppWrapper = styled.div`
+  background: white;
+  width: 380px;
+  height: 90vh;
+  border-radius: 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 `;
 
 const Header = styled.div`
-  background-color: white;
-  color: #0d1d2c;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 22px;
-  font-size: 25px;
-  font-weight: bold;
+  background: #0d1d2c;
+  color: white;
+  padding: 24px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 24px 24px 0 0;
 `;
+
 const App = () => {
   return (
-    <Container>
-      <Header>Daily Expense Tracker</Header>
-      <HomeComponent />
-    </Container>
+    <AppContainer>
+      <AppWrapper>
+        <Header>Daily Expense Tracker</Header>
+        <HomeComponent />
+      </AppWrapper>
+    </AppContainer>
   );
 };
 

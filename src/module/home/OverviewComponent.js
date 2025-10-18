@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -25,7 +25,7 @@ const ExpenseBox = styled.div`
   gap: 10px;
   width: 135px;
   & span {
-    color: ${(props) => (props.$isIncome ? "green" : "red")};
+    color: ${(props) => (props.isIncome ? "green" : "red")};
     font-weight: bold;
     font-size: 20px;
   }
@@ -164,7 +164,7 @@ const OverViewComponent = (props) => {
         <ExpenseBox>
           Expense<span>${props.expense}</span>
         </ExpenseBox>
-        <ExpenseBox $isIncome>
+        <ExpenseBox isIncome={true}>
           Income<span>${props.income}</span>
         </ExpenseBox>
       </ExpenseContainer>
